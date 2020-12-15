@@ -12,11 +12,26 @@ var tbody = d3.select("tbody");
 // Console.log the UFO data from data.js
 console.log(data);
 
+//Refactor to use Arrow Functions!
 //Loop Through `data` and console.log for each UFO object
 //Use d3 to append one table row `tr` for each UFO object
-data.forEach(function(ufo) {
-    console.log(ufo);
+
+data.forEach((ufo) => {
     var row = tbody.append("tr");
+    
+    //Use `Object.entries` to console.log each UFO value
+    
+    Object.entries(ufo).forEach(([key, value]) => {
+      
+    //Use d3 to append 1 cell per UFO entry value  
+      
+      var cell = row.append("td");
+      
+    //Use d3 to update each cell's text with UFO entry values  
+      
+      cell.text(value);
+    });
+});
 
 //Use a date form in your HTML document and write JavaScript code 
 //that will listen for events and search through the `date/time` column to find rows that match user input.
